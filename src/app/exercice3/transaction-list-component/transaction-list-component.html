@@ -1,0 +1,53 @@
+    <app-date-time-header-component></app-date-time-header-component>
+    
+    <div class="container">
+      <h1>Liste des transactions</h1>
+      
+        <table>
+        <thead>
+            <tr>
+            <th (click)="sortBy('id')" class="sortable">
+                ID 
+                @if (sortField === 'id') {
+                <span class="sort-indicator">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+                }
+            </th>
+            <th (click)="sortBy('date')" class="sortable">
+                Date
+                @if (sortField === 'date') {
+                <span class="sort-indicator">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+                }
+            </th>
+            <th (click)="sortBy('label')" class="sortable">
+                Label
+                @if (sortField === 'label') {
+                <span class="sort-indicator">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+                }
+            </th>
+            <th (click)="sortBy('amount')" class="sortable">
+                Montant
+                @if (sortField === 'amount') {
+                <span class="sort-indicator">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+                }
+            </th>
+            <th (click)="sortBy('balance')" class="sortable">
+                Balance
+                @if (sortField === 'balance') {
+                <span class="sort-indicator">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+                }
+            </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (transaction of transactions; track transaction.id) {
+            <tr (click)="goToDetail(transaction.id)" class="clickable-row">
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.date }}</td>
+                <td>{{ transaction.label }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.balance }}</td>
+            </tr>
+            }
+        </tbody>
+        </table>
+    </div>

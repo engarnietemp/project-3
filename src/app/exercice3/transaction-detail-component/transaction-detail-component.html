@@ -1,0 +1,20 @@
+    <app-date-time-header-component></app-date-time-header-component>
+    
+    <div class="container">
+      <button (click)="goBack()">← Retour à la liste</button>
+      
+      @if (transaction) {
+        <div class="transaction-detail">
+          <h1>Détail de la transaction {{ transaction.id }}</h1>
+          <p><strong>Date :</strong> {{ transaction.date }}</p>
+          <p><strong>Label :</strong> {{ transaction.label }}</p>
+          <p><strong>Montant :</strong> {{ transaction.amount }}</p>
+          <p><strong>Balance :</strong> {{ transaction.balance }}</p>
+          @if (transaction.description) {
+            <p><strong>Description :</strong> {{ transaction.description }}</p>
+          }
+        </div>
+      } @else {
+        <p>Chargement...</p>
+      }
+    </div>

@@ -1,0 +1,8 @@
+.datetime-header {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #e2e8f0;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: 600;
+  color: #4a5568;
+}

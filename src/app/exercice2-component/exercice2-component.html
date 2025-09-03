@@ -1,0 +1,52 @@
+<div class="container">
+  <header class="header">
+    <h1>Exercice 2 - Calculatrice</h1>
+  </header>
+  
+  <main class="main-content">
+
+    <section class="calculator">
+        <div class="number-field">
+          <input id="first-number" type="number" [(ngModel)]="firstNumber">
+        </div>
+
+        <fieldset class="operator-choice">
+          @for (operator of operatorList; track operator.value) {
+            <label class="radio-label">
+              <input type="radio" 
+                     [(ngModel)]="selectedOperator" 
+                     [value]="operator.value" 
+                     name="operator">
+              {{operator.label}}
+            </label>
+          }
+        </fieldset>
+
+        <div class="number-field">
+          <input id="second-number" type="number" [(ngModel)]="secondNumber">
+        </div>
+
+        <button type="button" (click)="onCompute()">Compute</button>        
+    </section>
+
+    <section class="last-operation">
+      @if (result !== null) {
+        <h2>Dernier résultat : {{result}}</h2>
+      }
+    </section>
+
+    <section class="operation-history">
+    @if (operationHistory.length > 0) {
+        @for (operation of operationHistory; track operation.id; let i = $index) {
+        <div class="operation-item">
+            <p class="operation-info">Date : {{operation.date | date:'short'}} | Operation : {{operation.expression}} | Résultat : {{operation.result}}</p>
+            <button type="button" class="delete-btn" (click)="onDelete(i)">Delete</button>
+        </div>
+        }
+    } @else {
+        <p>Pas d'opérations dans l'historique</p>
+    }
+    </section>
+
+  </main>
+</div>

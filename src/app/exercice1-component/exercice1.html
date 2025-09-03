@@ -1,0 +1,52 @@
+<div class="container">
+  <header class="header">
+    <h1>Exercice 1 - Formatage de texte</h1>
+  </header>
+  
+  <main class="main-content">
+
+    <section class="result-section">
+      <p class="formatted-text" [ngStyle]="textStyle">
+        Bonjour {{name.toUpperCase()}} !
+      </p>
+    </section>
+
+    <section class="controls-box">
+      <h2>Options de formatage</h2>
+      
+      <div class="controls-grid">
+        <div class="control-group">
+          <label for="name-input">Nom :  </label>
+          <input id="name-input" type="text" [(ngModel)]="name">
+        </div>
+        
+        <div class="control-group">
+          <label for="font-select">Police :  </label>
+          <select id="font-select" [(ngModel)]="selectedFont">
+            @for (font of fontList; track font) {
+              <option [value]="font">{{font}}</option>
+            }
+          </select>
+        </div>
+        
+        <div class="control-group">
+          <label for="size-input">Taille :  </label>
+          <input id="size-input" type="number" [(ngModel)]="fontSize" min="10" max="100">
+        </div>
+        
+        <fieldset class="control-group">
+          <legend>Alignement :  </legend>
+          @for (alignment of alignments; track alignment.value) {
+            <label class="radio-label">
+              <input type="radio" 
+                     [(ngModel)]="selectedAlignment" 
+                     [value]="alignment.value" 
+                     name="alignment">
+              {{alignment.label}}
+            </label>
+          }
+        </fieldset>
+      </div>
+    </section>
+  </main>
+</div>

@@ -1,0 +1,40 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.result-section {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.formatted-text {
+  margin: 0;
+  width: 100%;
+}
+
+.controls-box {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.controls-box h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #4a5568;
+  font-size: 18px;
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
