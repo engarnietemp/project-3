@@ -2,6 +2,15 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
 
+## Docker launch
+
+The Dockerfile has been tested with these two commands : 
+
+```bash
+docker build -t angular-tp .
+docker run -p 4200:4200 angular-tp
+```
+
 ## Development server
 
 To start a local development server, run:
